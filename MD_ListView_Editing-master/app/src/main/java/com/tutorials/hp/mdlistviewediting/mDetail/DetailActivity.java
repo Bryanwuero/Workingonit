@@ -131,6 +131,9 @@ public class DetailActivity extends AppCompatActivity {
             public void onClick(View v) {
                 if(crud.delete(position))
                 {
+                    String name=nameEditDetailTxt.getText().toString();
+                    db.deleteRecords(name);
+
                     //mato la actividad
                     DetailActivity.this.finish();
                 }
@@ -141,7 +144,7 @@ public class DetailActivity extends AppCompatActivity {
 
     }
 
-    public void saveRecord(View v){
+    /*public void saveRecord(View v){
         String name = nameEditDetailTxt.getText().toString();
         String desc = descEditTextDetail.getText().toString();
         String start = startDateEditDetailText.getText().toString();
@@ -154,8 +157,13 @@ public class DetailActivity extends AppCompatActivity {
         String name = nameEditDetailTxt.getText().toString();
         int result = db.getRecord(name);
         Toast.makeText(this, "activity found: " + result, Toast.LENGTH_SHORT).show();
-    }
+    }*/
 
+    public void deleteRecord(View v){
+        String name = nameEditDetailTxt.getText().toString();
+        int result = db.deleteRecords(name);
+        Toast.makeText(this, "result: " + result, Toast.LENGTH_SHORT).show();
+    }
 
 
 }

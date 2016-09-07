@@ -68,7 +68,7 @@ public class DBHelper extends SQLiteOpenHelper{
         db.insert(TABLE, null, cv);
     }
 
-    public int getRecord(String name){
+    public int getRecords(String name){
 
         SQLiteDatabase db = getWritableDatabase();
         int result = -1;
@@ -79,7 +79,6 @@ public class DBHelper extends SQLiteOpenHelper{
         Cursor c = db.query(TABLE, null, selection, params, null, null, null);
 
         if(c.moveToFirst()){
-
             result = c.getInt(0);
 
         }
@@ -87,7 +86,7 @@ public class DBHelper extends SQLiteOpenHelper{
         return result;
     }
 
-    public int deleteRecord(String name) {
+    public int deleteRecords(String name) {
 
         SQLiteDatabase db = getWritableDatabase();
         String selection = "name = ?";

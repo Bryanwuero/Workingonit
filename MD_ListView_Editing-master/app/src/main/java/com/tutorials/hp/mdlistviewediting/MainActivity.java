@@ -5,11 +5,14 @@ import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
+import android.widget.Toast;
 
+import com.tutorials.hp.mdlistviewediting.mDB.DBHelper;
 import com.tutorials.hp.mdlistviewediting.mData.CRUD;
 import com.tutorials.hp.mdlistviewediting.mData.ActivityCollection;
 import com.tutorials.hp.mdlistviewediting.mData.Activity;
@@ -23,6 +26,7 @@ public class MainActivity extends AppCompatActivity {
     Button saveBtn;
     CustomAdapter adapter;
     CRUD crud;
+    DBHelper db;
 
 
     @Override
@@ -36,6 +40,8 @@ public class MainActivity extends AppCompatActivity {
         lv= (ListView) findViewById(R.id.lv);
         crud=new CRUD(ActivityCollection.getActivities());
         adapter=new CustomAdapter(this,crud.getActivities());
+
+        db = new DBHelper(this);
 
 //        lv.setAdapter(adapter);
 
@@ -71,6 +77,14 @@ public class MainActivity extends AppCompatActivity {
                 s.setDateStart(startEditText.getText().toString());
                 s.setDateFinish(finishEditText.getText().toString());
 
+                String name = nameEditText.getText().toString();
+                String desc = descEditText.getText().toString();
+                String start = startEditText.getText().toString();
+                String finish = finishEditText.getText().toString();
+                db.saveRecord(name, desc, start, finish);
+               // db.saveRecord("Run", "5 km", "20/09/2016", "21/09/2016");
+                Log.d("creado", "creados");
+
                 if(crud.addNew(s))
                 {
                     nameEditText.setText("");
@@ -94,6 +108,24 @@ public class MainActivity extends AppCompatActivity {
 
         lv.setAdapter(adapter);
     }
+
+   /* public void saveRecords(View v){
+        String name = nameEditText.getText().toString();
+        String desc = descEditText.getText().toString();
+        String start = startEditText.getText().toString();
+        String finish = finishEditText.getText().toString();
+
+        db.saveRecord(name, desc, start, finish);
+        db.saveRecord("Run", "5 km", "20/09/2016", "21/09/2016");
+        Log.d("creado", "creados");
+    }*/
+
+    public void findRecord(View v){
+        String name = nameEditText.getText().toString();
+        int result = db.getRecords(name);
+        Toast.makeText(this, "activity found: " + result, Toast.LENGTH_SHORT).show();
+    }
+
 }
 
 

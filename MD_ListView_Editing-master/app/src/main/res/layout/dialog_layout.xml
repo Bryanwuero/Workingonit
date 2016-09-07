@@ -74,7 +74,7 @@
             android:background="@color/colorAccent"
             android:layout_marginTop="40dp"
             android:textColor="@android:color/white"
-            android:onClick="saveRecord" />
+            android:onClick="saveRecords" />
 
         <Button android:id="@+id/deleteBtn"
             android:layout_width="197dp"
@@ -83,13 +83,14 @@
             android:clickable="true"
             android:background="@color/colorAccent"
             android:layout_marginTop="40dp"
-            android:textColor="@android:color/white" />
+            android:textColor="@android:color/white"
+            android:onClick="deleteRecord" />
 
         <Button
             android:id="@+id/querybutton"
             android:layout_width="180dp"
             android:layout_height="wrap_content"
-            android:text="Query"
+            android:text="Find"
             android:clickable="true"
             android:background="@color/colorAccent"
             android:layout_marginTop="40dp"
