@@ -8,6 +8,7 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
 
+import com.tutorials.hp.mdlistviewediting.MainActivity;
 import com.tutorials.hp.mdlistviewediting.R;
 import com.tutorials.hp.mdlistviewediting.mData.Activity;
 import com.tutorials.hp.mdlistviewediting.mDetail.DetailActivity;
@@ -19,6 +20,7 @@ public class CustomAdapter extends BaseAdapter {
 
     Context c;
     ArrayList<Activity> activities;
+    MainActivity activity;
     LayoutInflater inflater;
 
     public CustomAdapter(Context c, ArrayList<Activity> activities) {
@@ -28,6 +30,12 @@ public class CustomAdapter extends BaseAdapter {
         //inicio el inflater
         inflater= (LayoutInflater) c.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
     }
+
+    /*public CustomAdapter(ArrayList<Activity> activities, MainActivity activity) {
+        this.activities = activities;
+        this.activity = activity;
+    }*/
+
 
     @Override
     public int getCount() {

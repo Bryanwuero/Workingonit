@@ -13,18 +13,20 @@ import android.widget.ListView;
 import android.widget.Toast;
 
 import com.tutorials.hp.mdlistviewediting.mDB.DBHelper;
+import com.tutorials.hp.mdlistviewediting.mData.Activity;
 import com.tutorials.hp.mdlistviewediting.mData.CRUD;
 import com.tutorials.hp.mdlistviewediting.mData.ActivityCollection;
-import com.tutorials.hp.mdlistviewediting.mData.Activity;
 import com.tutorials.hp.mdlistviewediting.mListView.CustomAdapter;
 
-//Actividad en donde le paso mi Actividad y descripcion y fechas de mis actividades y obtiene los datos
+import java.util.ArrayList;
+
+//Activity en donde le paso mi Activity y descripcion y fechas de mis actividades y obtiene los datos
 public class MainActivity extends AppCompatActivity {
 
     ListView lv;
     EditText nameEditText,descEditText, startEditText, finishEditText;
     Button saveBtn;
-    CustomAdapter adapter;
+    CustomAdapter adapter,adapter2;
     CRUD crud;
     DBHelper db;
 
@@ -42,6 +44,9 @@ public class MainActivity extends AppCompatActivity {
         adapter=new CustomAdapter(this,crud.getActivities());
 
         db = new DBHelper(this);
+
+        ArrayList<Activity> act = db.getActivities();
+        adapter2 = new CustomAdapter(this, act);
 
 //        lv.setAdapter(adapter);
 
@@ -107,6 +112,7 @@ public class MainActivity extends AppCompatActivity {
         super.onResume();
 
         lv.setAdapter(adapter);
+        lv.setAdapter(adapter2);
     }
 
    /* public void saveRecords(View v){

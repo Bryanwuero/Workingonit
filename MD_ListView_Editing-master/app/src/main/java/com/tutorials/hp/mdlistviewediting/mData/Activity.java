@@ -1,12 +1,21 @@
 package com.tutorials.hp.mdlistviewediting.mData;
 
+
 public class Activity {
-    String name;
-    String description;
-    String dateStart;
-    String dateFinish;
+    private String name;
+    private String description;
+    private String dateStart;
+    private String dateFinish;
+
+    public Activity(String name, String description, String dateStart, String dateFinish){
+        this.name =name;
+        this.description =description;
+        this.dateStart = dateStart ;
+        this.dateFinish = dateFinish;
+    }
 
     public Activity() {
+
     }
 
     public String getName() {

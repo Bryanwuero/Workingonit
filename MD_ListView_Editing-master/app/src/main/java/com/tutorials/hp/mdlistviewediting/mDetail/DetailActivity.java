@@ -14,9 +14,10 @@ import android.widget.Toast;
 
 import com.tutorials.hp.mdlistviewediting.R;
 import com.tutorials.hp.mdlistviewediting.mDB.DBHelper;
+import com.tutorials.hp.mdlistviewediting.mData.Activity;
 import com.tutorials.hp.mdlistviewediting.mData.CRUD;
 import com.tutorials.hp.mdlistviewediting.mData.ActivityCollection;
-import com.tutorials.hp.mdlistviewediting.mData.Activity;
+
 //Esta es la actividad detallada donde se describe toda la actividad y susfechas y muestro los datos
 public class DetailActivity extends AppCompatActivity {
 

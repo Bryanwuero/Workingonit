@@ -4,11 +4,13 @@ package com.tutorials.hp.mdlistviewediting.mDB;
 
 import android.content.ContentValues;
 import android.content.Context;
-import android.content.res.ColorStateList;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
-import android.widget.SimpleCursorTreeAdapter;
+
+import com.tutorials.hp.mdlistviewediting.mData.Activity;
+
+import java.util.ArrayList;
 
 /**
  * Created by arroy_000 on 9/7/2016.
@@ -92,5 +94,20 @@ public class DBHelper extends SQLiteOpenHelper{
         String selection = "name = ?";
         String[] params = {name};
         return db.delete(TABLE, selection, params);
+    }
+
+    public ArrayList<Activity> getActivities(){
+        SQLiteDatabase db = getWritableDatabase();
+        ArrayList<Activity> resultado = new ArrayList<Activity>();
+
+        Cursor c = db.query(TABLE, null, null, null, null, null, null);
+
+        if(c.moveToFirst()){
+            do {
+                resultado.add(new Activity(c.getString(1), c.getString(2), c.getString(3), c.getString(4)));
+            }
+            while (c.moveToNext());
+        }
+        return resultado;
     }
 }
