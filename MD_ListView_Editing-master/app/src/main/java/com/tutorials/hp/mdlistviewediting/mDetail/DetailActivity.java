@@ -10,8 +10,10 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.tutorials.hp.mdlistviewediting.R;
+import com.tutorials.hp.mdlistviewediting.mDB.DBHelper;
 import com.tutorials.hp.mdlistviewediting.mData.CRUD;
 import com.tutorials.hp.mdlistviewediting.mData.ActivityCollection;
 import com.tutorials.hp.mdlistviewediting.mData.Activity;
@@ -24,6 +26,7 @@ public class DetailActivity extends AppCompatActivity {
     EditText nameEditDetailTxt,descEditTextDetail, startDateEditDetailText, finishDateEditDetailText;
     Button updateBtn,deleteBtn;
     CRUD crud;
+    DBHelper db;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,6 +38,7 @@ public class DetailActivity extends AppCompatActivity {
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
 
         crud=new CRUD(ActivityCollection.getActivities());
+        db = new DBHelper(this);
 
         nameTxt= (TextView) findViewById(R.id.nameTxtDetail);
         descTxt= (TextView) findViewById(R.id.descDetailTxt);
@@ -136,5 +140,22 @@ public class DetailActivity extends AppCompatActivity {
         d.show();
 
     }
+
+    public void saveRecord(View v){
+        String name = nameEditDetailTxt.getText().toString();
+        String desc = descEditTextDetail.getText().toString();
+        String start = startDateEditDetailText.getText().toString();
+        String finish = finishDateEditDetailText.getText().toString();
+
+        db.saveRecord(name, desc, start, finish);
+    }
+
+    public void findRecord(View v){
+        String name = nameEditDetailTxt.getText().toString();
+        int result = db.getRecord(name);
+        Toast.makeText(this, "activity found: " + result, Toast.LENGTH_SHORT).show();
+    }
+
+
 
 }
