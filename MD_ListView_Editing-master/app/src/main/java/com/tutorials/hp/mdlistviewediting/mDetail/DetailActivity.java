@@ -6,17 +6,22 @@ import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.tutorials.hp.mdlistviewediting.R;
 import com.tutorials.hp.mdlistviewediting.mDB.DBHelper;
-import com.tutorials.hp.mdlistviewediting.mData.Activity;
 import com.tutorials.hp.mdlistviewediting.mData.CRUD;
 import com.tutorials.hp.mdlistviewediting.mData.ActivityCollection;
+import com.tutorials.hp.mdlistviewediting.mData.Activity;
+import com.tutorials.hp.mdlistviewediting.mListView.CustomAdapter;
+
+import java.util.ArrayList;
 
 //Esta es la actividad detallada donde se describe toda la actividad y susfechas y muestro los datos
 public class DetailActivity extends AppCompatActivity {
@@ -110,6 +115,11 @@ public class DetailActivity extends AppCompatActivity {
                 s.setDateStart(start);
                 s.setDateFinish(finish);
 
+
+                db.saveRecord(name, desc, start, finish);
+                // db.saveRecord("Run", "5 km", "20/09/2016", "21/09/2016");
+                Log.d("creado", "creados");
+
                 if(crud.update(position,s))
                 {
                     nameEditDetailTxt.setText(name);
@@ -165,6 +175,5 @@ public class DetailActivity extends AppCompatActivity {
         int result = db.deleteRecords(name);
         Toast.makeText(this, "result: " + result, Toast.LENGTH_SHORT).show();
     }
-
 
 }

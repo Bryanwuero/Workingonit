@@ -12,15 +12,19 @@ import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.Toast;
 
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DatabaseReference;
 import com.tutorials.hp.mdlistviewediting.mDB.DBHelper;
-import com.tutorials.hp.mdlistviewediting.mData.Activity;
 import com.tutorials.hp.mdlistviewediting.mData.CRUD;
 import com.tutorials.hp.mdlistviewediting.mData.ActivityCollection;
+import com.tutorials.hp.mdlistviewediting.mData.Activity;
+import com.tutorials.hp.mdlistviewediting.mData.Usuario;
 import com.tutorials.hp.mdlistviewediting.mListView.CustomAdapter;
 
 import java.util.ArrayList;
 
-//Activity en donde le paso mi Activity y descripcion y fechas de mis actividades y obtiene los datos
+//Actividad en donde le paso mi Actividad y descripcion y fechas de mis actividades y obtiene los datos
 public class MainActivity extends AppCompatActivity {
 
     ListView lv;
@@ -29,6 +33,12 @@ public class MainActivity extends AppCompatActivity {
     CustomAdapter adapter,adapter2;
     CRUD crud;
     DBHelper db;
+
+
+    public DatabaseReference mDatabase;
+    public Usuario user;
+    public FirebaseUser fbUser;
+
 
 
     @Override
@@ -44,9 +54,15 @@ public class MainActivity extends AppCompatActivity {
         adapter=new CustomAdapter(this,crud.getActivities());
 
         db = new DBHelper(this);
-
         ArrayList<Activity> act = db.getActivities();
         adapter2 = new CustomAdapter(this, act);
+
+        fbUser = FirebaseAuth.getInstance().getCurrentUser();
+        if (fbUser != null){
+
+        }else{
+            finish();
+        }
 
 //        lv.setAdapter(adapter);
 
@@ -87,7 +103,7 @@ public class MainActivity extends AppCompatActivity {
                 String start = startEditText.getText().toString();
                 String finish = finishEditText.getText().toString();
                 db.saveRecord(name, desc, start, finish);
-               // db.saveRecord("Run", "5 km", "20/09/2016", "21/09/2016");
+                // db.saveRecord("Run", "5 km", "20/09/2016", "21/09/2016");
                 Log.d("creado", "creados");
 
                 if(crud.addNew(s))
@@ -115,7 +131,7 @@ public class MainActivity extends AppCompatActivity {
         lv.setAdapter(adapter2);
     }
 
-   /* public void saveRecords(View v){
+     /* public void saveRecords(View v){
         String name = nameEditText.getText().toString();
         String desc = descEditText.getText().toString();
         String start = startEditText.getText().toString();
@@ -131,7 +147,6 @@ public class MainActivity extends AppCompatActivity {
         int result = db.getRecords(name);
         Toast.makeText(this, "activity found: " + result, Toast.LENGTH_SHORT).show();
     }
-
 }
 
 

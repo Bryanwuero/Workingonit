@@ -1,7 +1,5 @@
 package com.tutorials.hp.mdlistviewediting.mDB;
 
-
-
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
@@ -13,10 +11,9 @@ import com.tutorials.hp.mdlistviewediting.mData.Activity;
 import java.util.ArrayList;
 
 /**
- * Created by arroy_000 on 9/7/2016.
+ * Created by arroy_000 on 10/22/2016.
  */
 public class DBHelper extends SQLiteOpenHelper{
-
     private static final String TABLE = "Activities";
     private static final String DATABASE = "demo.db";
     private static final int VERSION = 1;

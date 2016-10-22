@@ -67,36 +67,34 @@
             android:text="Date Finish" />
 
         <Button android:id="@+id/saveBtn"
-            android:layout_width="197dp"
-            android:layout_height="wrap_content"
-            android:text="Save"
-            android:clickable="true"
-            android:background="@color/colorAccent"
-            android:layout_marginTop="40dp"
-            android:textColor="@android:color/white"
-            android:onClick="saveRecords" />
+                android:layout_width="197dp"
+                android:layout_height="wrap_content"
+                android:text="Save"
+                android:clickable="true"
+                android:background="@color/colorAccent"
+                android:layout_marginTop="40dp"
+                android:textColor="@android:color/white"
+                android:nestedScrollingEnabled="false"/>
 
         <Button android:id="@+id/deleteBtn"
-            android:layout_width="197dp"
-            android:layout_height="wrap_content"
-            android:text="Delete"
-            android:clickable="true"
-            android:background="@color/colorAccent"
-            android:layout_marginTop="40dp"
-            android:textColor="@android:color/white"
-            android:onClick="deleteRecord" />
+                android:layout_width="197dp"
+                android:layout_height="wrap_content"
+                android:text="Delete"
+                android:clickable="true"
+                android:background="@color/colorAccent"
+                android:layout_marginTop="40dp"
+                android:textColor="@android:color/white"
+                android:onClick="deleteRecord"/>
 
         <Button
-            android:id="@+id/querybutton"
-            android:layout_width="180dp"
+            android:layout_width="197dp"
             android:layout_height="wrap_content"
             android:text="Find"
-            android:clickable="true"
+            android:id="@+id/findBtn"
             android:background="@color/colorAccent"
             android:layout_marginTop="40dp"
             android:textColor="@android:color/white"
-            android:layout_gravity="center_horizontal"
-            android:onClick="findRecord" />
+            android:onClick="findRecord"/>
 
 
     </LinearLayout>
