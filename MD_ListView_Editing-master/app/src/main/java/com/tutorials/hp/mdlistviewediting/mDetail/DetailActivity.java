@@ -9,11 +9,16 @@ import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 import com.tutorials.hp.mdlistviewediting.R;
 import com.tutorials.hp.mdlistviewediting.mDB.DBHelper;
 import com.tutorials.hp.mdlistviewediting.mData.CRUD;
@@ -31,8 +36,16 @@ public class DetailActivity extends AppCompatActivity {
     int position;
     EditText nameEditDetailTxt,descEditTextDetail, startDateEditDetailText, finishDateEditDetailText;
     Button updateBtn,deleteBtn;
+    boolean status = false;
+    CheckBox checkBox;
     CRUD crud;
     DBHelper db;
+
+    //Base de datos fire Base
+    private FirebaseDatabase fdb;
+    private DatabaseReference dbr;
+    private FirebaseUser user;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,6 +63,13 @@ public class DetailActivity extends AppCompatActivity {
         descTxt= (TextView) findViewById(R.id.descDetailTxt);
         startDateTxt= (TextView) findViewById(R.id.startDetailTxt);
         finishDateTxt= (TextView) findViewById(R.id.finishDetailTxt);
+        checkBox = (CheckBox) findViewById(R.id.checkbox_id);
+
+        //Data base instantiate
+        fdb = FirebaseDatabase.getInstance();
+        dbr = fdb.getReference();
+
+
 
 
         //Recivo los Datos
@@ -96,12 +116,15 @@ public class DetailActivity extends AppCompatActivity {
         nameEditDetailTxt.setText(name);
         descEditTextDetail.setText(desc);
         startDateEditDetailText.setText(start);
-        finishDateEditDetailText.setText(finish);
+
+
 
 
         updateBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+
                 Activity s=new Activity();
 
                 name=nameEditDetailTxt.getText().toString();
@@ -114,6 +137,14 @@ public class DetailActivity extends AppCompatActivity {
                 s.setDescription(desc);
                 s.setDateStart(start);
                 s.setDateFinish(finish);
+
+                    if (checkBox.isChecked()) {
+                        //checkBox.setChecked(false);
+                        status = true;
+                    }else {
+                        status = false;
+                    }
+
 
 
                 db.saveRecord(name, desc, start, finish);

@@ -5,6 +5,7 @@ public class Activity {
     String description;
     String dateStart;
     String dateFinish;
+    boolean status;
 
     public Activity() {
     }
@@ -14,6 +15,7 @@ public class Activity {
         this.description = description;
         this.dateStart = dateStart;
         this.dateFinish = dateFinish;
+        this.status = status;
     }
 
     public String getName() {
@@ -47,4 +49,5 @@ public class Activity {
     public void setDateFinish(String dateFinish) {
         this.dateFinish = dateFinish;
     }
+
 }

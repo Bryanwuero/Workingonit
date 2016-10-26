@@ -38,7 +38,9 @@ public class LogIn extends AppCompatActivity {
                 FirebaseUser user = firebaseAuth.getCurrentUser();
                 if (user != null){
                     Log.d("Usuario", "onAuthStateChanged:sign_in:"+user.getUid());
-                    startActivity(new Intent(LogIn.this, MainActivity.class));
+                    Intent intent = new Intent(LogIn.this, MenuPrincipal.class);
+                    intent.putExtra("usuario", user.getUid());
+                    startActivity(intent);
                 }else{
                     Log.d("Usuario", "onAuthStateChange:signed_out");
                 }
@@ -58,7 +60,7 @@ public class LogIn extends AppCompatActivity {
         if (mAuthListener != null){
             mAuth.removeAuthStateListener(mAuthListener);
         }
-        mAuth.signOut();
+        //mAuth.signOut();
     }
 
     public void logIn(View v){

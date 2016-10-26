@@ -71,7 +71,7 @@
                 android:layout_height="wrap_content"
                 android:text="Save"
                 android:clickable="true"
-                android:background="@color/colorAccent"
+                android:background="@color/accent_material_light"
                 android:layout_marginTop="40dp"
                 android:textColor="@android:color/white"
                 android:nestedScrollingEnabled="false"/>
@@ -81,7 +81,7 @@
                 android:layout_height="wrap_content"
                 android:text="Delete"
                 android:clickable="true"
-                android:background="@color/colorAccent"
+                android:background="@color/accent_material_light"
                 android:layout_marginTop="40dp"
                 android:textColor="@android:color/white"
                 android:onClick="deleteRecord"/>
@@ -91,7 +91,7 @@
             android:layout_height="wrap_content"
             android:text="Find"
             android:id="@+id/findBtn"
-            android:background="@color/colorAccent"
+            android:background="@color/accent_material_light"
             android:layout_marginTop="40dp"
             android:textColor="@android:color/white"
             android:onClick="findRecord"/>
