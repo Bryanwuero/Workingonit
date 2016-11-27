@@ -1,0 +1,57 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:tools="http://schemas.android.com/tools"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                tools:context="com.moviles.workinonit.PerfilFragment">
+
+    <!-- TODO: Update blank fragment layout -->
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Name:"
+        android:id="@+id/textViewDesc2Frag"
+        android:layout_above="@+id/textViewNamePerfil"
+        android:layout_alignLeft="@+id/textView0"
+        android:layout_alignStart="@+id/textView0"
+        android:layout_marginBottom="42dp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Medium Text"
+        android:id="@+id/textViewNamePerfil"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="E-mail:"
+        android:id="@+id/textView0"
+        android:layout_below="@+id/textViewNamePerfil"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="42dp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Medium Text"
+        android:id="@+id/textViewEmailPerfil"
+        android:layout_below="@+id/textView0"
+        android:layout_alignLeft="@+id/textViewNamePerfil"
+        android:layout_alignStart="@+id/textViewNamePerfil"
+        android:layout_marginTop="37dp"/>
+
+    <ImageView
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:id="@+id/imageView2"
+        android:src="@drawable/ic_person_black_24dp"
+        android:layout_above="@+id/textViewDesc2Frag"
+        android:layout_centerHorizontal="true"/>
+</RelativeLayout>

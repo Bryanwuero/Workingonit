@@ -1,0 +1,73 @@
+{
+  "project_info": {
+    "project_number": "608935990526",
+    "firebase_url": "https://workingonit-c0698.firebaseio.com",
+    "project_id": "workingonit-c0698",
+    "storage_bucket": "workingonit-c0698.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:608935990526:android:f0f0cb882edf197c",
+        "android_client_info": {
+          "package_name": "com.tutorials.hp.mdlistviewediting"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "608935990526-tr2ap7do6hvf249pe2dicfr45ruobj9f.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDJscTewn_OZ_LvDRLv98cBmf-YVe7ZTW8"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:608935990526:android:0e5cbf42cf8be02f",
+        "android_client_info": {
+          "package_name": "com.moviles.workinonit"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "608935990526-tr2ap7do6hvf249pe2dicfr45ruobj9f.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDJscTewn_OZ_LvDRLv98cBmf-YVe7ZTW8"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,0 +1,110 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+             xmlns:tools="http://schemas.android.com/tools"
+             android:layout_width="match_parent"
+             android:layout_height="match_parent"
+             tools:context="com.moviles.workinonit.AddActivity"
+             android:id="@+id/dialog_layout">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:orientation="vertical"
+        android:layout_height="match_parent"
+        android:weightSum="1"
+        android:gravity="center"
+        android:measureWithLargestChild="false"
+        android:longClickable="false"
+        android:baselineAligned="false">
+
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/nameLayout"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:baselineAligned="false"
+            android:measureWithLargestChild="false">
+
+            <EditText
+                android:id="@+id/nameEditTxt"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:singleLine="true"
+                android:hint= "Name" />
+        </android.support.design.widget.TextInputLayout>
+
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/descLayout"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content">
+
+            <EditText
+                android:id="@+id/descEditTxt"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:singleLine="true"
+                android:hint= "Description" />
+        </android.support.design.widget.TextInputLayout>
+
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/startLayout"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:baselineAligned="false"
+            android:measureWithLargestChild="false">
+
+            <EditText
+                android:inputType="date"
+                android:id="@+id/startEditTxt"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:singleLine="true"
+                android:hint= "Start Date" />
+        </android.support.design.widget.TextInputLayout>
+
+
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/finishLayout"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content">
+
+            <EditText
+                android:inputType="date"
+                android:id="@+id/finishEditTxt"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:singleLine="true"
+                android:hint= "Finish Date" />
+        </android.support.design.widget.TextInputLayout>
+
+        <Button android:id="@+id/saveBtn"
+                android:layout_width="197dp"
+                android:layout_height="wrap_content"
+                android:text="Save"
+                android:clickable="true"
+                android:background="@color/accent_material_light"
+                android:layout_marginTop="5dp"
+                android:textColor="@android:color/white"
+                android:nestedScrollingEnabled="false"/>
+
+        <Button android:id="@+id/deleteBtn"
+                android:layout_width="197dp"
+                android:layout_height="wrap_content"
+                android:text="Delete"
+                android:clickable="true"
+                android:background="@color/accent_material_light"
+                android:layout_marginTop="5dp"
+                android:textColor="@android:color/white"
+                android:onClick="deleteRecord"/>
+
+        <Button
+            android:layout_width="197dp"
+            android:layout_height="wrap_content"
+            android:text="Find"
+            android:id="@+id/findBtn"
+            android:background="@color/accent_material_light"
+            android:layout_marginTop="5dp"
+            android:textColor="@android:color/white"
+            android:onClick="findRecord"/>
+
+
+    </LinearLayout>
+</RelativeLayout>
